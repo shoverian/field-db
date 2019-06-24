@@ -3,14 +3,13 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
+export class DashboardComponent implements OnInit {
+  employees: Employee[] = [];
 
-export class EmployeesComponent implements OnInit {
-  employees: Employee[];
-  
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
@@ -19,6 +18,7 @@ export class EmployeesComponent implements OnInit {
 
   getEmployees(): void {
     this.employeeService.getEmployees()
-      .subscribe(employees => this.employees = employees);
+      .subscribe(employees => this.employees = employees.slice(1,5));
   }
+
 }

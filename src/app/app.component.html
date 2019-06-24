@@ -3,8 +3,10 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-
-<app-employees></app-employees>
-<app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
-<app-messages></app-messages>
-<router-outlet></router-outlet>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/employees">Employees</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>
